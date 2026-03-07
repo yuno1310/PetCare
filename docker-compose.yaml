@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:18
+    container_name: petcare
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: yuno1310
+      POSTGRES_DB: petcare_db
+    ports:
+      - "5431:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

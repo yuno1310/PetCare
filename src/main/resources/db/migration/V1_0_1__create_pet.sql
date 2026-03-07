@@ -1,0 +1,13 @@
+CREATE TABLE Pet (
+  PetID UUID PRIMARY KEY,
+  CustomerID UUID,
+  PetName VARCHAR(10) NOT NULL,
+  Species VARCHAR(50),
+  Breed VARCHAR(50),
+  DateOfBirth TIMESTAMPTZ,
+  Gender VARCHAR(10),
+  HealthStatus VARCHAR(255),
+  FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+);
