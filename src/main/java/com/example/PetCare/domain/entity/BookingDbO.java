@@ -16,11 +16,12 @@ public class BookingDbO {
     record.setNote(note);
   }
 
-  public BookingDbO(UUID branchID, UUID employeeID, UUID customerID, String note) {
+  public BookingDbO(UUID branchID, UUID employeeID, UUID customerID, UUID petID, String note) {
     record = Booking.BOOKING.newRecord();
     record.setBranchid(branchID);
     record.setEmployeeid(employeeID);
     record.setCustomerid(customerID);
+    record.setPetid(petID);
     record.setNote(note);
   }
 

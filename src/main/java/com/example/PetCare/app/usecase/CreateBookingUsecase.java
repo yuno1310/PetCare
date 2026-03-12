@@ -15,7 +15,7 @@ public class CreateBookingUsecase {
 
   public CreateBookingResponse execute(CreateBookingRequest request) {
 
-    var booking = new BookingDbO(request.branchID, request.employeeID, request.customerID, request.note);
+    var booking = new BookingDbO(request.branchID, request.employeeID, request.customerID, request.petID, request.note);
     if (bookingRepository.save(booking) == true) {
       return new CreateBookingResponse(true, "Create new booking sucessfully");
     } else {
@@ -23,7 +23,7 @@ public class CreateBookingUsecase {
     }
   }
 
-  public record CreateBookingRequest(UUID branchID, UUID employeeID, UUID customerID, String note) {
+  public record CreateBookingRequest(UUID branchID, UUID employeeID, UUID customerID, UUID petID, String note) {
   }
 
   public record CreateBookingResponse(boolean sucess, String message) {

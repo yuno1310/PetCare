@@ -7,15 +7,21 @@ package com.example.PetCare.generated;
 import com.example.PetCare.generated.tables.Booking;
 import com.example.PetCare.generated.tables.Branch;
 import com.example.PetCare.generated.tables.Customer;
+import com.example.PetCare.generated.tables.Detailedbooking;
 import com.example.PetCare.generated.tables.Employee;
 import com.example.PetCare.generated.tables.FlywaySchemaHistory;
 import com.example.PetCare.generated.tables.Pet;
+import com.example.PetCare.generated.tables.Service;
+import com.example.PetCare.generated.tables.Servicetype;
 import com.example.PetCare.generated.tables.records.BookingRecord;
 import com.example.PetCare.generated.tables.records.BranchRecord;
 import com.example.PetCare.generated.tables.records.CustomerRecord;
+import com.example.PetCare.generated.tables.records.DetailedbookingRecord;
 import com.example.PetCare.generated.tables.records.EmployeeRecord;
 import com.example.PetCare.generated.tables.records.FlywaySchemaHistoryRecord;
 import com.example.PetCare.generated.tables.records.PetRecord;
+import com.example.PetCare.generated.tables.records.ServiceRecord;
+import com.example.PetCare.generated.tables.records.ServicetypeRecord;
 
 import org.jooq.ForeignKey;
 import org.jooq.TableField;
@@ -39,9 +45,12 @@ public class Keys {
     public static final UniqueKey<BranchRecord> BRANCH_PKEY = Internal.createUniqueKey(Branch.BRANCH, DSL.name("branch_pkey"), new TableField[] { Branch.BRANCH.BRANCHID }, true);
     public static final UniqueKey<CustomerRecord> CUSTOMER_CITIZENID_KEY = Internal.createUniqueKey(Customer.CUSTOMER, DSL.name("customer_citizenid_key"), new TableField[] { Customer.CUSTOMER.CITIZENID }, true);
     public static final UniqueKey<CustomerRecord> CUSTOMER_PKEY = Internal.createUniqueKey(Customer.CUSTOMER, DSL.name("customer_pkey"), new TableField[] { Customer.CUSTOMER.CUSTOMERID }, true);
+    public static final UniqueKey<DetailedbookingRecord> PK_DETAILED_BOOKING = Internal.createUniqueKey(Detailedbooking.DETAILEDBOOKING, DSL.name("pk_detailed_booking"), new TableField[] { Detailedbooking.DETAILEDBOOKING.BOOKINGID, Detailedbooking.DETAILEDBOOKING.SERVICEID, Detailedbooking.DETAILEDBOOKING.PETID }, true);
     public static final UniqueKey<EmployeeRecord> EMPLOYEE_PKEY = Internal.createUniqueKey(Employee.EMPLOYEE, DSL.name("employee_pkey"), new TableField[] { Employee.EMPLOYEE.EMPLOYEEID }, true);
     public static final UniqueKey<FlywaySchemaHistoryRecord> FLYWAY_SCHEMA_HISTORY_PK = Internal.createUniqueKey(FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY, DSL.name("flyway_schema_history_pk"), new TableField[] { FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY.INSTALLED_RANK }, true);
     public static final UniqueKey<PetRecord> PET_PKEY = Internal.createUniqueKey(Pet.PET, DSL.name("pet_pkey"), new TableField[] { Pet.PET.PETID }, true);
+    public static final UniqueKey<ServiceRecord> SERVICE_PKEY = Internal.createUniqueKey(Service.SERVICE, DSL.name("service_pkey"), new TableField[] { Service.SERVICE.SERVICEID }, true);
+    public static final UniqueKey<ServicetypeRecord> SERVICETYPE_PKEY = Internal.createUniqueKey(Servicetype.SERVICETYPE, DSL.name("servicetype_pkey"), new TableField[] { Servicetype.SERVICETYPE.TYPEID }, true);
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
@@ -51,6 +60,10 @@ public class Keys {
     public static final ForeignKey<BookingRecord, CustomerRecord> BOOKING__FK_BOOKING_CUSTOMER = Internal.createForeignKey(Booking.BOOKING, DSL.name("fk_booking_customer"), new TableField[] { Booking.BOOKING.CUSTOMERID }, Keys.CUSTOMER_PKEY, new TableField[] { Customer.CUSTOMER.CUSTOMERID }, true);
     public static final ForeignKey<BookingRecord, EmployeeRecord> BOOKING__FK_BOOKING_EMPLOYEE = Internal.createForeignKey(Booking.BOOKING, DSL.name("fk_booking_employee"), new TableField[] { Booking.BOOKING.EMPLOYEEID }, Keys.EMPLOYEE_PKEY, new TableField[] { Employee.EMPLOYEE.EMPLOYEEID }, true);
     public static final ForeignKey<BookingRecord, PetRecord> BOOKING__FK_BOOKING_PET = Internal.createForeignKey(Booking.BOOKING, DSL.name("fk_booking_pet"), new TableField[] { Booking.BOOKING.PETID }, Keys.PET_PKEY, new TableField[] { Pet.PET.PETID }, true);
+    public static final ForeignKey<DetailedbookingRecord, BookingRecord> DETAILEDBOOKING__FK_DETAILED_BOOKING_BOOKING = Internal.createForeignKey(Detailedbooking.DETAILEDBOOKING, DSL.name("fk_detailed_booking_booking"), new TableField[] { Detailedbooking.DETAILEDBOOKING.BOOKINGID }, Keys.BOOKING_PKEY, new TableField[] { Booking.BOOKING.BOOKINGID }, true);
+    public static final ForeignKey<DetailedbookingRecord, PetRecord> DETAILEDBOOKING__FK_DETAILED_BOOKING_PET = Internal.createForeignKey(Detailedbooking.DETAILEDBOOKING, DSL.name("fk_detailed_booking_pet"), new TableField[] { Detailedbooking.DETAILEDBOOKING.PETID }, Keys.PET_PKEY, new TableField[] { Pet.PET.PETID }, true);
+    public static final ForeignKey<DetailedbookingRecord, ServiceRecord> DETAILEDBOOKING__FK_DETAILED_BOOKING_SERVICE = Internal.createForeignKey(Detailedbooking.DETAILEDBOOKING, DSL.name("fk_detailed_booking_service"), new TableField[] { Detailedbooking.DETAILEDBOOKING.SERVICEID }, Keys.SERVICE_PKEY, new TableField[] { Service.SERVICE.SERVICEID }, true);
     public static final ForeignKey<EmployeeRecord, BranchRecord> EMPLOYEE__FK_BRANCH = Internal.createForeignKey(Employee.EMPLOYEE, DSL.name("fk_branch"), new TableField[] { Employee.EMPLOYEE.BRANCHID }, Keys.BRANCH_PKEY, new TableField[] { Branch.BRANCH.BRANCHID }, true);
     public static final ForeignKey<PetRecord, CustomerRecord> PET__PET_CUSTOMERID_FKEY = Internal.createForeignKey(Pet.PET, DSL.name("pet_customerid_fkey"), new TableField[] { Pet.PET.CUSTOMERID }, Keys.CUSTOMER_PKEY, new TableField[] { Customer.CUSTOMER.CUSTOMERID }, true);
+    public static final ForeignKey<ServiceRecord, ServicetypeRecord> SERVICE__FK_SERVICE_TYPE = Internal.createForeignKey(Service.SERVICE, DSL.name("fk_service_type"), new TableField[] { Service.SERVICE.TYPEID }, Keys.SERVICETYPE_PKEY, new TableField[] { Servicetype.SERVICETYPE.TYPEID }, true);
 }

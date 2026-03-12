@@ -7,10 +7,13 @@ package com.example.PetCare.generated;
 import com.example.PetCare.generated.tables.Booking;
 import com.example.PetCare.generated.tables.Branch;
 import com.example.PetCare.generated.tables.Customer;
+import com.example.PetCare.generated.tables.Detailedbooking;
 import com.example.PetCare.generated.tables.Employee;
 import com.example.PetCare.generated.tables.FlywaySchemaHistory;
 import com.example.PetCare.generated.tables.Pet;
 import com.example.PetCare.generated.tables.PgpArmorHeaders;
+import com.example.PetCare.generated.tables.Service;
+import com.example.PetCare.generated.tables.Servicetype;
 import com.example.PetCare.generated.tables.records.PgpArmorHeadersRecord;
 
 import java.util.Arrays;
@@ -51,6 +54,11 @@ public class Public extends SchemaImpl {
      * The table <code>public.customer</code>.
      */
     public final Customer CUSTOMER = Customer.CUSTOMER;
+
+    /**
+     * The table <code>public.detailedbooking</code>.
+     */
+    public final Detailedbooking DETAILEDBOOKING = Detailedbooking.DETAILEDBOOKING;
 
     /**
      * The table <code>public.employee</code>.
@@ -107,6 +115,16 @@ public class Public extends SchemaImpl {
     }
 
     /**
+     * The table <code>public.service</code>.
+     */
+    public final Service SERVICE = Service.SERVICE;
+
+    /**
+     * The table <code>public.servicetype</code>.
+     */
+    public final Servicetype SERVICETYPE = Servicetype.SERVICETYPE;
+
+    /**
      * No further instances allowed
      */
     private Public() {
@@ -125,10 +143,13 @@ public class Public extends SchemaImpl {
             Booking.BOOKING,
             Branch.BRANCH,
             Customer.CUSTOMER,
+            Detailedbooking.DETAILEDBOOKING,
             Employee.EMPLOYEE,
             FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY,
             Pet.PET,
-            PgpArmorHeaders.PGP_ARMOR_HEADERS
+            PgpArmorHeaders.PGP_ARMOR_HEADERS,
+            Service.SERVICE,
+            Servicetype.SERVICETYPE
         );
     }
 }
