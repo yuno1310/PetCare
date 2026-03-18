@@ -8,6 +8,7 @@ import com.example.PetCare.generated.Keys;
 import com.example.PetCare.generated.Public;
 import com.example.PetCare.generated.tables.Booking.BookingPath;
 import com.example.PetCare.generated.tables.Employee.EmployeePath;
+import com.example.PetCare.generated.tables.Visit.VisitPath;
 import com.example.PetCare.generated.tables.records.BranchRecord;
 
 import java.time.LocalTime;
@@ -183,6 +184,18 @@ public class Branch extends TableImpl<BranchRecord> {
             _employee = new EmployeePath(this, null, Keys.EMPLOYEE__FK_BRANCH.getInverseKey());
 
         return _employee;
+    }
+
+    private transient VisitPath _visit;
+
+    /**
+     * Get the implicit to-many join path to the <code>public.visit</code> table
+     */
+    public VisitPath visit() {
+        if (_visit == null)
+            _visit = new VisitPath(this, null, Keys.VISIT__FK_VISIT_BRANCH.getInverseKey());
+
+        return _visit;
     }
 
     @Override

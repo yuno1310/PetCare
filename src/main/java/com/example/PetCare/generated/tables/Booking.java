@@ -11,6 +11,7 @@ import com.example.PetCare.generated.tables.Customer.CustomerPath;
 import com.example.PetCare.generated.tables.Detailedbooking.DetailedbookingPath;
 import com.example.PetCare.generated.tables.Employee.EmployeePath;
 import com.example.PetCare.generated.tables.Pet.PetPath;
+import com.example.PetCare.generated.tables.Visit.VisitPath;
 import com.example.PetCare.generated.tables.records.BookingRecord;
 
 import java.time.OffsetDateTime;
@@ -243,6 +244,18 @@ public class Booking extends TableImpl<BookingRecord> {
             _detailedbooking = new DetailedbookingPath(this, null, Keys.DETAILEDBOOKING__FK_DETAILED_BOOKING_BOOKING.getInverseKey());
 
         return _detailedbooking;
+    }
+
+    private transient VisitPath _visit;
+
+    /**
+     * Get the implicit to-many join path to the <code>public.visit</code> table
+     */
+    public VisitPath visit() {
+        if (_visit == null)
+            _visit = new VisitPath(this, null, Keys.VISIT__FK_VISIT_BOOKING.getInverseKey());
+
+        return _visit;
     }
 
     @Override
