@@ -9,6 +9,7 @@ import com.example.PetCare.generated.Public;
 import com.example.PetCare.generated.tables.Booking.BookingPath;
 import com.example.PetCare.generated.tables.Customer.CustomerPath;
 import com.example.PetCare.generated.tables.Detailedbooking.DetailedbookingPath;
+import com.example.PetCare.generated.tables.Serviceorder.ServiceorderPath;
 import com.example.PetCare.generated.tables.records.PetRecord;
 
 import java.time.OffsetDateTime;
@@ -213,6 +214,19 @@ public class Pet extends TableImpl<PetRecord> {
             _detailedbooking = new DetailedbookingPath(this, null, Keys.DETAILEDBOOKING__FK_DETAILED_BOOKING_PET.getInverseKey());
 
         return _detailedbooking;
+    }
+
+    private transient ServiceorderPath _serviceorder;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>public.serviceorder</code> table
+     */
+    public ServiceorderPath serviceorder() {
+        if (_serviceorder == null)
+            _serviceorder = new ServiceorderPath(this, null, Keys.SERVICEORDER__FK_SERVICEORDER_PET.getInverseKey());
+
+        return _serviceorder;
     }
 
     @Override

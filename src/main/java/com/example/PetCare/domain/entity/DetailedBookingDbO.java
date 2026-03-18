@@ -20,4 +20,5 @@ public class DetailedBookingDbO {
   public DetailedBookingDbO(DetailedbookingRecord record) {
     this.record = record;
   }
+
 }

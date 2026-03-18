@@ -13,7 +13,9 @@ import com.example.PetCare.generated.tables.FlywaySchemaHistory;
 import com.example.PetCare.generated.tables.Pet;
 import com.example.PetCare.generated.tables.PgpArmorHeaders;
 import com.example.PetCare.generated.tables.Service;
+import com.example.PetCare.generated.tables.Serviceorder;
 import com.example.PetCare.generated.tables.Servicetype;
+import com.example.PetCare.generated.tables.Visit;
 import com.example.PetCare.generated.tables.records.PgpArmorHeadersRecord;
 
 import org.jooq.Configuration;
@@ -107,7 +109,17 @@ public class Tables {
     public static final Service SERVICE = Service.SERVICE;
 
     /**
+     * The table <code>public.serviceorder</code>.
+     */
+    public static final Serviceorder SERVICEORDER = Serviceorder.SERVICEORDER;
+
+    /**
      * The table <code>public.servicetype</code>.
      */
     public static final Servicetype SERVICETYPE = Servicetype.SERVICETYPE;
+
+    /**
+     * The table <code>public.visit</code>.
+     */
+    public static final Visit VISIT = Visit.VISIT;
 }

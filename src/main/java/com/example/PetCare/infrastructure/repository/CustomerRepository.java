@@ -23,10 +23,10 @@ public class CustomerRepository {
   public CustomerDbO findByPhoneNumber(String phoneNumber) {
     var record = dsl.selectFrom(Customer.CUSTOMER).where(Customer.CUSTOMER.PHONENUMBER.eq(phoneNumber)).fetchOne();
     if (record != null) {
-      CustomerDbO result = new CustomerDbO(record);
-      return result;
+      return new CustomerDbO(record);
     } else {
       return null;
     }
   }
+
 }

@@ -13,7 +13,9 @@ import com.example.PetCare.generated.tables.FlywaySchemaHistory;
 import com.example.PetCare.generated.tables.Pet;
 import com.example.PetCare.generated.tables.PgpArmorHeaders;
 import com.example.PetCare.generated.tables.Service;
+import com.example.PetCare.generated.tables.Serviceorder;
 import com.example.PetCare.generated.tables.Servicetype;
+import com.example.PetCare.generated.tables.Visit;
 import com.example.PetCare.generated.tables.records.PgpArmorHeadersRecord;
 
 import java.util.Arrays;
@@ -120,9 +122,19 @@ public class Public extends SchemaImpl {
     public final Service SERVICE = Service.SERVICE;
 
     /**
+     * The table <code>public.serviceorder</code>.
+     */
+    public final Serviceorder SERVICEORDER = Serviceorder.SERVICEORDER;
+
+    /**
      * The table <code>public.servicetype</code>.
      */
     public final Servicetype SERVICETYPE = Servicetype.SERVICETYPE;
+
+    /**
+     * The table <code>public.visit</code>.
+     */
+    public final Visit VISIT = Visit.VISIT;
 
     /**
      * No further instances allowed
@@ -149,7 +161,9 @@ public class Public extends SchemaImpl {
             Pet.PET,
             PgpArmorHeaders.PGP_ARMOR_HEADERS,
             Service.SERVICE,
-            Servicetype.SERVICETYPE
+            Serviceorder.SERVICEORDER,
+            Servicetype.SERVICETYPE,
+            Visit.VISIT
         );
     }
 }
