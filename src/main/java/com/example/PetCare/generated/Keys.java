@@ -13,6 +13,7 @@ import com.example.PetCare.generated.tables.FlywaySchemaHistory;
 import com.example.PetCare.generated.tables.Pet;
 import com.example.PetCare.generated.tables.Service;
 import com.example.PetCare.generated.tables.Serviceorder;
+import com.example.PetCare.generated.tables.Servicerecord;
 import com.example.PetCare.generated.tables.Servicetype;
 import com.example.PetCare.generated.tables.Visit;
 import com.example.PetCare.generated.tables.records.BookingRecord;
@@ -24,6 +25,7 @@ import com.example.PetCare.generated.tables.records.FlywaySchemaHistoryRecord;
 import com.example.PetCare.generated.tables.records.PetRecord;
 import com.example.PetCare.generated.tables.records.ServiceRecord;
 import com.example.PetCare.generated.tables.records.ServiceorderRecord;
+import com.example.PetCare.generated.tables.records.ServicerecordRecord;
 import com.example.PetCare.generated.tables.records.ServicetypeRecord;
 import com.example.PetCare.generated.tables.records.VisitRecord;
 
@@ -55,6 +57,7 @@ public class Keys {
     public static final UniqueKey<PetRecord> PET_PKEY = Internal.createUniqueKey(Pet.PET, DSL.name("pet_pkey"), new TableField[] { Pet.PET.PETID }, true);
     public static final UniqueKey<ServiceRecord> SERVICE_PKEY = Internal.createUniqueKey(Service.SERVICE, DSL.name("service_pkey"), new TableField[] { Service.SERVICE.SERVICEID }, true);
     public static final UniqueKey<ServiceorderRecord> SERVICEORDER_PKEY = Internal.createUniqueKey(Serviceorder.SERVICEORDER, DSL.name("serviceorder_pkey"), new TableField[] { Serviceorder.SERVICEORDER.ORDERID }, true);
+    public static final UniqueKey<ServicerecordRecord> SERVICERECORD_PKEY = Internal.createUniqueKey(Servicerecord.SERVICERECORD, DSL.name("servicerecord_pkey"), new TableField[] { Servicerecord.SERVICERECORD.ORDERID }, true);
     public static final UniqueKey<ServicetypeRecord> SERVICETYPE_PKEY = Internal.createUniqueKey(Servicetype.SERVICETYPE, DSL.name("servicetype_pkey"), new TableField[] { Servicetype.SERVICETYPE.TYPEID }, true);
     public static final UniqueKey<VisitRecord> VISIT_PKEY = Internal.createUniqueKey(Visit.VISIT, DSL.name("visit_pkey"), new TableField[] { Visit.VISIT.VISITID }, true);
 
@@ -75,6 +78,7 @@ public class Keys {
     public static final ForeignKey<ServiceorderRecord, PetRecord> SERVICEORDER__FK_SERVICEORDER_PET = Internal.createForeignKey(Serviceorder.SERVICEORDER, DSL.name("fk_serviceorder_pet"), new TableField[] { Serviceorder.SERVICEORDER.PETID }, Keys.PET_PKEY, new TableField[] { Pet.PET.PETID }, true);
     public static final ForeignKey<ServiceorderRecord, ServiceRecord> SERVICEORDER__FK_SERVICEORDER_SERVICE = Internal.createForeignKey(Serviceorder.SERVICEORDER, DSL.name("fk_serviceorder_service"), new TableField[] { Serviceorder.SERVICEORDER.SERVICEID }, Keys.SERVICE_PKEY, new TableField[] { Service.SERVICE.SERVICEID }, true);
     public static final ForeignKey<ServiceorderRecord, VisitRecord> SERVICEORDER__FK_SERVICEORDER_VISIT = Internal.createForeignKey(Serviceorder.SERVICEORDER, DSL.name("fk_serviceorder_visit"), new TableField[] { Serviceorder.SERVICEORDER.VISITID }, Keys.VISIT_PKEY, new TableField[] { Visit.VISIT.VISITID }, true);
+    public static final ForeignKey<ServicerecordRecord, ServiceorderRecord> SERVICERECORD__FK_SERVICERECORD_ORDER = Internal.createForeignKey(Servicerecord.SERVICERECORD, DSL.name("fk_servicerecord_order"), new TableField[] { Servicerecord.SERVICERECORD.ORDERID }, Keys.SERVICEORDER_PKEY, new TableField[] { Serviceorder.SERVICEORDER.ORDERID }, true);
     public static final ForeignKey<VisitRecord, BookingRecord> VISIT__FK_VISIT_BOOKING = Internal.createForeignKey(Visit.VISIT, DSL.name("fk_visit_booking"), new TableField[] { Visit.VISIT.BOOKINGID }, Keys.BOOKING_PKEY, new TableField[] { Booking.BOOKING.BOOKINGID }, true);
     public static final ForeignKey<VisitRecord, BranchRecord> VISIT__FK_VISIT_BRANCH = Internal.createForeignKey(Visit.VISIT, DSL.name("fk_visit_branch"), new TableField[] { Visit.VISIT.BRANCHID }, Keys.BRANCH_PKEY, new TableField[] { Branch.BRANCH.BRANCHID }, true);
     public static final ForeignKey<VisitRecord, CustomerRecord> VISIT__FK_VISIT_CUSTOMER = Internal.createForeignKey(Visit.VISIT, DSL.name("fk_visit_customer"), new TableField[] { Visit.VISIT.CUSTOMERID }, Keys.CUSTOMER_PKEY, new TableField[] { Customer.CUSTOMER.CUSTOMERID }, true);
