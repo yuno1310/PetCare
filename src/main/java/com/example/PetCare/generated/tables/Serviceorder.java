@@ -8,6 +8,7 @@ import com.example.PetCare.generated.Keys;
 import com.example.PetCare.generated.Public;
 import com.example.PetCare.generated.tables.Pet.PetPath;
 import com.example.PetCare.generated.tables.Service.ServicePath;
+import com.example.PetCare.generated.tables.Servicerecord.ServicerecordPath;
 import com.example.PetCare.generated.tables.Visit.VisitPath;
 import com.example.PetCare.generated.tables.records.ServiceorderRecord;
 
@@ -200,6 +201,19 @@ public class Serviceorder extends TableImpl<ServiceorderRecord> {
             _visit = new VisitPath(this, Keys.SERVICEORDER__FK_SERVICEORDER_VISIT, null);
 
         return _visit;
+    }
+
+    private transient ServicerecordPath _servicerecord;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>public.servicerecord</code> table
+     */
+    public ServicerecordPath servicerecord() {
+        if (_servicerecord == null)
+            _servicerecord = new ServicerecordPath(this, null, Keys.SERVICERECORD__FK_SERVICERECORD_ORDER.getInverseKey());
+
+        return _servicerecord;
     }
 
     @Override

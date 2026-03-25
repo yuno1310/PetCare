@@ -14,6 +14,7 @@ import com.example.PetCare.generated.tables.Pet;
 import com.example.PetCare.generated.tables.PgpArmorHeaders;
 import com.example.PetCare.generated.tables.Service;
 import com.example.PetCare.generated.tables.Serviceorder;
+import com.example.PetCare.generated.tables.Servicerecord;
 import com.example.PetCare.generated.tables.Servicetype;
 import com.example.PetCare.generated.tables.Visit;
 import com.example.PetCare.generated.tables.records.PgpArmorHeadersRecord;
@@ -112,6 +113,11 @@ public class Tables {
      * The table <code>public.serviceorder</code>.
      */
     public static final Serviceorder SERVICEORDER = Serviceorder.SERVICEORDER;
+
+    /**
+     * The table <code>public.servicerecord</code>.
+     */
+    public static final Servicerecord SERVICERECORD = Servicerecord.SERVICERECORD;
 
     /**
      * The table <code>public.servicetype</code>.

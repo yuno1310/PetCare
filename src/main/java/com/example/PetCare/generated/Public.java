@@ -14,6 +14,7 @@ import com.example.PetCare.generated.tables.Pet;
 import com.example.PetCare.generated.tables.PgpArmorHeaders;
 import com.example.PetCare.generated.tables.Service;
 import com.example.PetCare.generated.tables.Serviceorder;
+import com.example.PetCare.generated.tables.Servicerecord;
 import com.example.PetCare.generated.tables.Servicetype;
 import com.example.PetCare.generated.tables.Visit;
 import com.example.PetCare.generated.tables.records.PgpArmorHeadersRecord;
@@ -127,6 +128,11 @@ public class Public extends SchemaImpl {
     public final Serviceorder SERVICEORDER = Serviceorder.SERVICEORDER;
 
     /**
+     * The table <code>public.servicerecord</code>.
+     */
+    public final Servicerecord SERVICERECORD = Servicerecord.SERVICERECORD;
+
+    /**
      * The table <code>public.servicetype</code>.
      */
     public final Servicetype SERVICETYPE = Servicetype.SERVICETYPE;
@@ -162,6 +168,7 @@ public class Public extends SchemaImpl {
             PgpArmorHeaders.PGP_ARMOR_HEADERS,
             Service.SERVICE,
             Serviceorder.SERVICEORDER,
+            Servicerecord.SERVICERECORD,
             Servicetype.SERVICETYPE,
             Visit.VISIT
         );
