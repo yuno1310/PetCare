@@ -6,6 +6,8 @@ package com.example.PetCare.generated.tables;
 
 import com.example.PetCare.generated.Keys;
 import com.example.PetCare.generated.Public;
+import com.example.PetCare.generated.tables.Branch.BranchPath;
+import com.example.PetCare.generated.tables.Branchservice.BranchservicePath;
 import com.example.PetCare.generated.tables.Detailedbooking.DetailedbookingPath;
 import com.example.PetCare.generated.tables.Serviceorder.ServiceorderPath;
 import com.example.PetCare.generated.tables.Servicetype.ServicetypePath;
@@ -168,6 +170,19 @@ public class Service extends TableImpl<ServiceRecord> {
         return _servicetype;
     }
 
+    private transient BranchservicePath _branchservice;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>public.branchservice</code> table
+     */
+    public BranchservicePath branchservice() {
+        if (_branchservice == null)
+            _branchservice = new BranchservicePath(this, null, Keys.BRANCHSERVICE__FK_BRANCHSERVICE_SERVICE.getInverseKey());
+
+        return _branchservice;
+    }
+
     private transient DetailedbookingPath _detailedbooking;
 
     /**
@@ -192,6 +207,14 @@ public class Service extends TableImpl<ServiceRecord> {
             _serviceorder = new ServiceorderPath(this, null, Keys.SERVICEORDER__FK_SERVICEORDER_SERVICE.getInverseKey());
 
         return _serviceorder;
+    }
+
+    /**
+     * Get the implicit many-to-many join path to the <code>public.branch</code>
+     * table
+     */
+    public BranchPath branch() {
+        return branchservice().branch();
     }
 
     @Override

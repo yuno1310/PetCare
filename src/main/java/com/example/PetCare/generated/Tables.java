@@ -6,10 +6,12 @@ package com.example.PetCare.generated;
 
 import com.example.PetCare.generated.tables.Booking;
 import com.example.PetCare.generated.tables.Branch;
+import com.example.PetCare.generated.tables.Branchservice;
 import com.example.PetCare.generated.tables.Customer;
 import com.example.PetCare.generated.tables.Detailedbooking;
 import com.example.PetCare.generated.tables.Employee;
 import com.example.PetCare.generated.tables.FlywaySchemaHistory;
+import com.example.PetCare.generated.tables.Medicalrecord;
 import com.example.PetCare.generated.tables.Pet;
 import com.example.PetCare.generated.tables.PgpArmorHeaders;
 import com.example.PetCare.generated.tables.Service;
@@ -41,6 +43,11 @@ public class Tables {
     public static final Branch BRANCH = Branch.BRANCH;
 
     /**
+     * The table <code>public.branchservice</code>.
+     */
+    public static final Branchservice BRANCHSERVICE = Branchservice.BRANCHSERVICE;
+
+    /**
      * The table <code>public.customer</code>.
      */
     public static final Customer CUSTOMER = Customer.CUSTOMER;
@@ -59,6 +66,11 @@ public class Tables {
      * The table <code>public.flyway_schema_history</code>.
      */
     public static final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
+
+    /**
+     * The table <code>public.medicalrecord</code>.
+     */
+    public static final Medicalrecord MEDICALRECORD = Medicalrecord.MEDICALRECORD;
 
     /**
      * The table <code>public.pet</code>.

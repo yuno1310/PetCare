@@ -9,6 +9,7 @@ import com.example.PetCare.generated.Public;
 import com.example.PetCare.generated.tables.Booking.BookingPath;
 import com.example.PetCare.generated.tables.Customer.CustomerPath;
 import com.example.PetCare.generated.tables.Detailedbooking.DetailedbookingPath;
+import com.example.PetCare.generated.tables.Medicalrecord.MedicalrecordPath;
 import com.example.PetCare.generated.tables.Serviceorder.ServiceorderPath;
 import com.example.PetCare.generated.tables.records.PetRecord;
 
@@ -214,6 +215,19 @@ public class Pet extends TableImpl<PetRecord> {
             _detailedbooking = new DetailedbookingPath(this, null, Keys.DETAILEDBOOKING__FK_DETAILED_BOOKING_PET.getInverseKey());
 
         return _detailedbooking;
+    }
+
+    private transient MedicalrecordPath _medicalrecord;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>public.medicalrecord</code> table
+     */
+    public MedicalrecordPath medicalrecord() {
+        if (_medicalrecord == null)
+            _medicalrecord = new MedicalrecordPath(this, null, Keys.MEDICALRECORD__FK_MEDICALRECORD_PET.getInverseKey());
+
+        return _medicalrecord;
     }
 
     private transient ServiceorderPath _serviceorder;

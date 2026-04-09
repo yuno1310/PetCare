@@ -6,10 +6,12 @@ package com.example.PetCare.generated;
 
 import com.example.PetCare.generated.tables.Booking;
 import com.example.PetCare.generated.tables.Branch;
+import com.example.PetCare.generated.tables.Branchservice;
 import com.example.PetCare.generated.tables.Customer;
 import com.example.PetCare.generated.tables.Detailedbooking;
 import com.example.PetCare.generated.tables.Employee;
 import com.example.PetCare.generated.tables.FlywaySchemaHistory;
+import com.example.PetCare.generated.tables.Medicalrecord;
 import com.example.PetCare.generated.tables.Pet;
 import com.example.PetCare.generated.tables.PgpArmorHeaders;
 import com.example.PetCare.generated.tables.Service;
@@ -54,6 +56,11 @@ public class Public extends SchemaImpl {
     public final Branch BRANCH = Branch.BRANCH;
 
     /**
+     * The table <code>public.branchservice</code>.
+     */
+    public final Branchservice BRANCHSERVICE = Branchservice.BRANCHSERVICE;
+
+    /**
      * The table <code>public.customer</code>.
      */
     public final Customer CUSTOMER = Customer.CUSTOMER;
@@ -72,6 +79,11 @@ public class Public extends SchemaImpl {
      * The table <code>public.flyway_schema_history</code>.
      */
     public final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
+
+    /**
+     * The table <code>public.medicalrecord</code>.
+     */
+    public final Medicalrecord MEDICALRECORD = Medicalrecord.MEDICALRECORD;
 
     /**
      * The table <code>public.pet</code>.
@@ -160,10 +172,12 @@ public class Public extends SchemaImpl {
         return Arrays.asList(
             Booking.BOOKING,
             Branch.BRANCH,
+            Branchservice.BRANCHSERVICE,
             Customer.CUSTOMER,
             Detailedbooking.DETAILEDBOOKING,
             Employee.EMPLOYEE,
             FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY,
+            Medicalrecord.MEDICALRECORD,
             Pet.PET,
             PgpArmorHeaders.PGP_ARMOR_HEADERS,
             Service.SERVICE,
